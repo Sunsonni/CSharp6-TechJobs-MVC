@@ -21,23 +21,21 @@ public class SearchController : Controller
     public IActionResult Results(string searchType, string searchTerm)
     {   
         List<Job> jobs;
-        if (searchTerm.ToLower() == "all")
+        if (searchTerm == "all")
         {
             jobs = JobData.FindAll();
-             Console.WriteLine("first");
         }
-        else if (searchTerm == "")
+        else if (searchTerm == "" || searchTerm == null)
         {
-             jobs = JobData.FindByValue(searchType);
+            jobs = JobData.FindAll();
         }
         else
         {
             jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
-            Console.WriteLine("this is firing");
         }
         ViewBag.jobs = jobs;
         ViewBag.columns = ListController.ColumnChoices;
-        return View("Index", jobs);
+        return View("Index");
     }
 }
 

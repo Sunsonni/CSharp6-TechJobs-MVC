@@ -1,4 +1,5 @@
-﻿<div class="container body-content">
+﻿
+<div class="container body-content">
 
     <h1>@ViewBag.title</h1>
 
@@ -27,7 +28,7 @@
     <hr />
 
     @* TODO #4 - Loop over the search results to display all job fields. *@
-    @if(ViewBag.jobs != null)
+    @if (ViewBag.jobs != null)
     {
      @foreach (var job in ViewBag.jobs)
     {
@@ -59,5 +60,4 @@
         </table>
     }
     }
-
 </div>
